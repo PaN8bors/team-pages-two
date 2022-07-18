@@ -5,7 +5,7 @@
   <!-- <div class="logo-row">
 				<img class="logo" src="@/assets/SnapIT.webp">
 			<a>
-				<router-link to="/">team gallery</router-link>
+				<router-link class="linkText" to="/">team gallery</router-link>
 			</a>
 		</div> -->
   <router-view/>
@@ -16,12 +16,12 @@
 </script>
 
 <style>
-#app {
+#linkText {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: gray;
 }
 
 a {
