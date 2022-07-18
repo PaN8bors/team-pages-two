@@ -1,9 +1,17 @@
 <template>
 	<div class="some-page-wrapper">
+		<div class="logo-row">
+			<img class="logo" src="../assets/SnapIT.webp" />
+			<div>
+				<a>
+					<router-link class="linkText" to="/">back to team gallery</router-link>
+				</a>
+			</div>
+		</div>
 		<div class="row">
 			<div class="column">
 				<div class="blue-column">
-					<p class="intro">Meet {{user.name}}</p>
+					<p class="intro">Meet {{ user.name }}</p>
 				</div>
 			</div>
 		</div>
@@ -16,21 +24,21 @@ import { UserService } from "@/services/UserServices";
 export default {
 	name: "DetailsBanner",
 
-	data: function() {
+	data: function () {
 		return {
 			loading: false,
 			user: {},
-			errorMessage: null
+			errorMessage: null,
 		};
 	},
 
-	created: async function() {
+	created: async function () {
 		let userId = this.$route.params.userId;
 
 		try {
 			this.loading = true;
 			let response = await UserService.getUser(userId);
-			console.log(response.data)
+			console.log(response.data);
 			this.loading = false;
 			this.user = response.data;
 		} catch (error) {
@@ -42,11 +50,11 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 .some-page-wrapper {
 	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
+	font-family: "Poppins", sans-serif;
 }
 .logo-row {
 	display: flex;
@@ -56,6 +64,15 @@ export default {
 	height: 75px;
 	align-items: center;
 	padding-bottom: 1vh;
+	align-items: center;
+}
+
+.linkText {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: gray;
 }
 .row {
 	display: flex;
@@ -69,7 +86,7 @@ export default {
 	flex-direction: column;
 	flex-basis: auto;
 	flex: 1;
-	}
+}
 
 .logo {
 	max-height: auto;
@@ -78,7 +95,7 @@ export default {
 }
 .blue-column {
 	display: flex;
-	background-image: url('../assets/DetailsImage.jpg');
+	background-image: url("../assets/DetailsImage.jpg");
 	height: 200px;
 	align-items: center;
 	padding-left: 10%;
@@ -99,7 +116,7 @@ export default {
 }
 
 a:link {
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 a:visited {
@@ -119,5 +136,4 @@ a:active {
 .link:hover {
 	color: black;
 }
-
 </style>
