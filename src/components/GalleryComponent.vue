@@ -62,7 +62,7 @@ export default {
 .page-box {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	gap: 20px;
 	padding-left: 10%;
 	padding-right: 10%;
@@ -83,18 +83,12 @@ export default {
 	width: 300px;
 }
 
-.blue-box {
-	background-color:rgb(0, 0, 88);
-	height: 300px;
-	border-radius: 10px;
-}
-
 .shane {
 	border-radius: 10px;
 	opacity: 80%;
 }
 .shane:hover {
-	opacity: 100%
+	background-color: aqua;
 }
 
 .name {
