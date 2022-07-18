@@ -2,12 +2,12 @@
 
 <DetailsBanner />
 
-  <!-- <div class="logo-row">
+   <div class="logo-row">
 				<img class="logo" src="@/assets/SnapIT.webp">
 			<a>
 				<router-link class="linkText" to="/">team gallery</router-link>
 			</a>
-		</div> -->
+		</div> 
   <router-view/>
 </template>
 
@@ -16,7 +16,7 @@
 </script>
 
 <style>
-#linkText {
+.linkText {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
