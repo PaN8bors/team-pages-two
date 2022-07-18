@@ -12,11 +12,11 @@
 			</div>
 			<div class="compColumn-right">
 				<div class="details">
-					<h1 class="fullName">{{user.name}}</h1>
-					<h2 class="pronouns">(mister/sir)</h2>
-					<h3 class="title">Chief Irritator</h3>
+					<h1 class="detailsFullName">{{user.name}}</h1>
+					<h2 class="pronouns">(he/him)</h2>
+					<h3 class="detailsTitle">Chief Irritator</h3>
 					<h6 class="startYear">{{user.name}} joined SnapIT in 1908.</h6>
-					<h6 class="jobData">
+					<h6 class="jobLikes">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
 						impedit ipsum molestiae, repellat placeat veritatis ullam similique
 						dicta possimus temporibus ratione nisi accusamus quis velit minima
@@ -119,7 +119,7 @@ export default {
 	min-height: 500px;
 	width: auto;
 	margin-top: 50px;
-	padding-left: 5%;
+	padding-left: 0%;
 	padding-right: 0%;
 }
 
@@ -163,20 +163,21 @@ export default {
 
 .details {
 	width: 75%;
-	margin-right: 15%;
+	margin-right: 10%;
 	margin-top: 175px;
 	align-content: top;
+	justify-content: left;
 	padding-left: 18%;
 }
 
-.fullName {
+.detailsFullName {
 	font-size: 35px;
 	font-weight: 600;
 	font-style: normal;
 	font-family: poppins;
 	color: #0679be;
 	line-height: 27px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	margin-top: 0px;
 }
 
@@ -186,6 +187,7 @@ export default {
 	color: black;
 	font-family: poppins, sans-serif;
 	width: 100%;
+	margin-top: 30px;
 }
 
 .lowerInfo {
@@ -201,16 +203,15 @@ export default {
 	font-weight: 600;
 	line-height: 28px;
 	margin-top: 0px;
-	margin-bottom: 0px;
+	padding-bottom: 5px;
 }
 
-.title {
+.detailsTitle {
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 27px;
 	font-family: poppins;
 	margin-bottom: 0px;
-	padding-top: 15px;
 }
 
 .startYear {
@@ -223,14 +224,16 @@ export default {
 	margin-bottom: 0px;
 }
 
-.jobData {
+.jobLikes {
 	font-family: open-sans;
 	font-weight: 400;
 	font-size: 17px;
-	line-height: 23px;
+	font-stretch: 15%;
+	line-height: 26px;
 	color: #111111;
 	margin-top: 25px;
 	padding-right: 20%;
+	justify-content: left;
 }
 
 .hobby {
@@ -242,17 +245,21 @@ export default {
 	line-height: 27px;
 	color: #1b1b1b;
 	justify-self: center;
+	margin-bottom: 0px;
 }
 
 .hobbyData {
 	padding-left: 15%;
 	width: 70%;
-	font-family: poppins;
+	font-family: open-sans;
 	font-weight: 400;
 	font-size: 17px;
 	line-height: 26px;
 	font-stretch: 15%;
 	color: #111111;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	text-align: center;
 }
 
 .icons {
@@ -263,6 +270,7 @@ export default {
 	padding-left: 30%;
 	padding-bottom: 50px;
 	justify-content: center;
+	margin-top: 30px;
 }
 
 .socialLink {

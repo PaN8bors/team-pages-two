@@ -95,11 +95,14 @@ export default {
 	font-size: 18px;
 	margin-top: 0;
 	margin-bottom: 0;
+	text-align: center;
 }
 
 .title {
 	font-size: 16px;
+	font-weight: 600;
 	color: gray;
-	margin-top: -20px;
+	margin-top: 10px;
+	text-align: center;
 }
 </style>
