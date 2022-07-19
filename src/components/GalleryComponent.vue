@@ -97,14 +97,18 @@ export default {
 .card {
 	transition: 0.3s;
 	width: 300px;
+
 }
 
 .shane {
-	border-radius: 10px;
-	opacity: 80%;
+	transition: 0.3s;
+	width: 100%;
+
 }
-.shane:hover {
-	background-color: aqua;
+.shane:hover{
+	box-shadow: 10px 10px 30px 0px rgba(5, 17, 22, 0.15);
+	transform: scale(1.07);
+	background-color: grey;
 }
 
 .name {
@@ -121,4 +125,14 @@ export default {
 	margin-top: 10px;
 	text-align: center;
 }
+
+.blue-box{
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	border-radius: 10px;
+
+
+}
+
 </style>
