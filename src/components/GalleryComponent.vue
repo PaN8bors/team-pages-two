@@ -1,14 +1,9 @@
 <template>
 	<div class="page-box">
 		<span class="gallery-intro">
-			Morbi faucibus dolor nec efficitur consectetur. In hac habitasse platea
-			dictumst. Pellentesque feugiat risus non ipsum facilisis, ut bibendum enim
-			vulputate. Proin nec rhoncus eros, vitae vehicula elit. Vestibulum at
-			ipsum ac justo feugiat pharetra sed id quam. Nulla eu tellus sollicitudin,
-			tincidunt ex et, egestas lectus. Pellentesque bibendum erat ac dapibus
-			venenatis. Aenean vel est id tortor posuere congue. Aliquam convallis et
-			metus quis pharetra. Sed tortor nisi, laoreet vitae dolor quis, ultricies
-			vehicula massa.
+			Every player must be committed to the game plan without deviation
+			and work together to make it a win. Commit to the greater goal.
+			Always have the team's best interest in mind.
 		</span>
 		<div class="card" v-for="member of members" :key="member.id">
 			<router-link :to="'/details/' + member.id" 
@@ -90,8 +85,8 @@ export default {
 	width: 100%;
 	text-align: center;
 	padding-top: 10vh;
-	padding-bottom: 12vh;
-	font-size: 20px;
+	padding-bottom: 5vh;
+	font-size: 28px;
 }
 
 .card {
