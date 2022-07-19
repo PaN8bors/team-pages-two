@@ -87,12 +87,10 @@ export default {
 .shane {
 	transition: 0.3s;
 	width: 100%;
-
 }
 .shane:hover{
-	box-shadow: 10px 10px 30px 0px rgba(5, 17, 22, 0.15);
-	transform: scale(1.07);
-	background-color: grey;
+	transform: scale(1.09);
+	
 }
 
 .name {
@@ -112,7 +110,12 @@ export default {
 	height: 300px;
 	overflow: hidden;
 	border-radius: 10px;
+	opacity: 0.9;
+	background-color: #7CC6FE;
 
+}
+.blue-box:hover{
+	opacity: 1;
 
 }
 
