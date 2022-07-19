@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="column">
 				<div class="blue-column">
-					<p class="intro">Meet {{ user.name }}</p>
+					<p class="intro">Meet {{member.firstName}}</p>
 				</div>
 			</div>
 		</div>
@@ -27,20 +27,21 @@ export default {
 	data: function () {
 		return {
 			loading: false,
-			user: {},
-			errorMessage: null,
+			member: {},
+			errorMessage: null
 		};
 	},
 
-	created: async function () {
-		let userId = this.$route.params.userId;
+	created: async function() {
+		let memberId = this.$route.params.memberId;
 
 		try {
 			this.loading = true;
-			let response = await UserService.getUser(userId);
-			console.log(response.data);
+			let response = await UserService.getMembers(memberId);
+			console.log(response.data)
+
 			this.loading = false;
-			this.user = response.data;
+			this.member = response.data;
 		} catch (error) {
 			this.loading = false;
 			this.errorMessage = error;

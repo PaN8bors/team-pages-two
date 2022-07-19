@@ -10,8 +10,8 @@
 			metus quis pharetra. Sed tortor nisi, laoreet vitae dolor quis, ultricies
 			vehicula massa.
 		</span>
-		<div class="card" v-for="user of users" :key="user.id">
-			<router-link :to="'/details/' + user.id" 
+		<div class="card" v-for="member of members" :key="member.id">
+			<router-link :to="'/details/' + member.id" 
 				><div class='blue-box'><img
 					class="shane"
 					src="@/assets/sudheer.webp"
@@ -20,9 +20,9 @@
 			/></div></router-link>
 			<div>
 				<h4 class="name">
-					<b>{{ user.name }}</b>
+					<b>{{ member.firstName }}</b>
 				</h4>
-				<p class="title">{{ user.address.city }}</p>
+				<p class="title">{{ member.title }}</p>
 			</div>
 		</div>
 	</div>
@@ -37,7 +37,7 @@ export default {
 	data() {
 		return {
 			loading: false,
-			users: [],
+			members: [],
 			errorMessage: null,
 		};
 	},
@@ -45,14 +45,30 @@ export default {
 	created: async function () {
 		try {
 			this.loading = true;
-			let response = await UserService.getAllUsers();
+			let response = await UserService.getAllMembers();
 			this.loading = false;
-			this.users = response.data;
+			this.members = response.data;
 		} catch (error) {
 			this.loading = false;
 			this.errorMessage = error;
 		}
 	},
+
+	/*computed: {
+		sortedArray() {
+			let sortedMembers = this.members;
+			sortedMembers = sortedMembers.sort((a,b) => {
+				let fa = a.firstName.toLowerCase(), fb = b.firstName.toLowerCase();
+				if (fa < fb) {
+					return -1
+				}
+				if (fa > fb) {
+					return 1
+				}
+				return 0
+				})
+		}
+	}*/
 };
 </script>
 

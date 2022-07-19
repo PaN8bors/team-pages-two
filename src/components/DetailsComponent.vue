@@ -5,53 +5,48 @@
 				<div class="blobHolder">
 					<div class="frame">
 						<img class="pic" src="..\assets\blue-blob.png" />
-					<div class="badge"><img class="badge-image" src="..\assets\AppBadge.png" /></div>
+					<div v-if="member.wasApprentice" class="badge"><img class="badge-image" src="..\assets\AppBadge.png" /></div>
 
 					</div>
 				</div>
 			</div>
 			<div class="compColumn-right">
 				<div class="details">
-					<h1 class="detailsFullName">{{user.name}}</h1>
-					<h2 class="pronouns">(he/him)</h2>
-					<h3 class="detailsTitle">Chief Irritator</h3>
-					<h6 class="startYear">{{user.name}} joined SnapIT in 1908.</h6>
-					<h6 class="jobLikes">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-						impedit ipsum molestiae, repellat placeat veritatis ullam similique
-						dicta possimus temporibus ratione nisi accusamus quis velit minima
-						maiores voluptas perspiciatis illo.
-					</h6>
+					<h1 class="detailsFullName">{{ member.firstName }} {{ member.lastName }}</h1>
+					<h2 v-if="member.pronouns != null" class="pronouns">({{ member.pronouns }})</h2>
+					<h3 class="detailsTitle">{{ member.title }}</h3>
+					<h6 class="startYear">{{ member.firstName }} joined SnapIT in {{ member.startYear }}.</h6>
+					<h6 v-if="member.jobLikes != 'Did not answer.'" class="jobLikes">{{ member.jobLikes }}</h6>
 				</div>
 			</div>
 		</div>
 		<div class="lowerInfo">
-			<div class="interests">
+			<div v-if="member.interests != 'Did not answer.'" class="interests">
 				<h1 class="hobby">Hobbies and Interests</h1>
-				<h5 class="hobbyData">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. At ad atque
-					fugiat, voluptates adipisci nisi dolorem quia soluta placeat aperiam
-					odio dolorum culpa, deleniti eius cum voluptatibus laudantium
-					voluptatum quibusdam?
-				</h5>
+				<h5 class="hobbyData">{{ member.interests }}</h5>
 			</div>
 		</div>
 		<div class="icons">
-
-            <a href="https://www.linkedin.com/in/abbigail-engel-1a81171a2/">
-            <img class="socialLink" src="..\assets\LinkedIn.webp"> </a>
-
-            <a href="https://github.com/jgroff8806">
-            <img class="socialLink" src="..\assets\GitHub.webp"> </a>
-
-            <a href="https://www.instagram.com/isaacmad/">
-            <img class="socialLink" src="..\assets\Insta.webp"> </a>
-
-            <a href="https://www.youtube.com/megazipp">
-            <img class="socialLink" src="..\assets\YouTube.webp"> </a>
-
-            <a href="https://jasongroff.com/">
-            <img class="socialLink" src="..\assets\Link.webp"> </a>
+			<div v-if="member.linkedin != null">
+				<a :href="'https://www.linkedin.com/in/' + member.linkedin">
+				<img class="socialLink" src="..\assets\LinkedIn.webp"> </a>
+			</div>
+			<div v-if="member.github != null">
+				<a :href="'https://github.com/' + member.github">
+				<img class="socialLink" src="..\assets\GitHub.webp"> </a>
+			</div>
+			<div v-if="member.instagram != null">
+				<a :href="'https://www.instagram.com/' + member.instagram">
+				<img class="socialLink" src="..\assets\Insta.webp"> </a>
+			</div>
+			<div v-if="member.youtube != null">
+				<a :href="'https://www.youtube.com/' + member.youtube">
+				<img class="socialLink" src="..\assets\YouTube.webp"> </a>
+			</div>
+			<div v-if="member.personal != null">
+				<a :href="member.personal">
+				<img class="socialLink" src="..\assets\Link.webp"> </a>
+			</div>
         </div>
 	</div>
 </template>
@@ -65,20 +60,21 @@ export default {
 	data: function() {
 		return {
 			loading: false,
-			user: {},
+			member: {},
 			errorMessage: null
 		};
 	},
 
 	created: async function() {
-		let userId = this.$route.params.userId;
+		let memberId = this.$route.params.memberId;
 
 		try {
 			this.loading = true;
-			let response = await UserService.getUser(userId);
+			let response = await UserService.getMembers(memberId);
 			console.log(response.data)
 			this.loading = false;
-			this.user = response.data;
+			console.log(response.data);
+			this.member = response.data;
 		} catch (error) {
 			this.loading = false;
 			this.errorMessage = error;
@@ -188,6 +184,7 @@ export default {
 	font-family: poppins, sans-serif;
 	width: 100%;
 	margin-top: 30px;
+	justify-content: center;
 }
 
 .lowerInfo {
@@ -212,15 +209,16 @@ export default {
 	line-height: 27px;
 	font-family: poppins;
 	margin-bottom: 0px;
+	color: gray;
 }
 
 .startYear {
-	font-family: open-sans;
-	font-weight: 400;
+	font-family: Poppins;
+	font-weight: 600;
 	font-size: 17px;
 	line-height: 23px;
-	color: #111111;
-	margin-top: 25px;
+	color: gray;
+	margin-top: 5px;
 	margin-bottom: 0px;
 }
 
@@ -237,14 +235,14 @@ export default {
 }
 
 .hobby {
-	padding-left: 40%;
-	width: 20%;
+	padding-left: 15%;
+	width: 70%;
 	font-family: poppins;
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 27px;
 	color: #1b1b1b;
-	justify-self: center;
+	text-align: center;
 	margin-bottom: 0px;
 }
 
@@ -275,7 +273,7 @@ export default {
 
 .socialLink {
     height: auto;
-    width: 50%;
+    width: 50px;
     padding-left: 15px;
     padding-right: 15px;
 }
