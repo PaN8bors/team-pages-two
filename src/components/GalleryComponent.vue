@@ -13,11 +13,11 @@
 					alt="avatar"
 					style="width: 100%"
 			/></div></router-link>
-			<div>
-				<h4 class="name">
+			<div class="nameAndTitle">
+				<h4 class="memName">
 					<b>{{ member.firstName }}</b>
 				</h4>
-				<p class="title">{{ member.title }}</p>
+				<h4 class="memTitle">{{ member.title }}</h4>
 			</div>
 		</div>
 	</div>
@@ -106,19 +106,22 @@ export default {
 	background-color: grey;
 }
 
-.name {
-	font-size: 18px;
-	margin-top: 0;
-	margin-bottom: 0;
+.nameAndTitle {
 	text-align: center;
 }
 
-.title {
+.memName {
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
+.memTitle {
 	font-size: 16px;
 	font-weight: 600;
 	color: gray;
-	margin-top: 10px;
-	text-align: center;
+	margin-top: 1px;
+	margin-bottom: 0;
 }
 
 .blue-box{
