@@ -100,9 +100,8 @@ export default {
 	width: 100%;
 }
 .shane:hover{
-	box-shadow: 10px 10px 30px 0px rgba(5, 17, 22, 0.15);
-	transform: scale(1.07);
-	background-color: grey;
+	transform: scale(1.09);
+	
 }
 
 .nameAndTitle {
