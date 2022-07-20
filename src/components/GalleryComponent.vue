@@ -98,7 +98,6 @@ export default {
 .shane {
 	transition: 0.3s;
 	width: 100%;
-
 }
 .shane:hover{
 	box-shadow: 10px 10px 30px 0px rgba(5, 17, 22, 0.15);
@@ -129,8 +128,6 @@ export default {
 	height: 300px;
 	overflow: hidden;
 	border-radius: 10px;
-
-
 }
 
 </style>
