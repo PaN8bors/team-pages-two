@@ -89,11 +89,6 @@ export default {
 	font-size: 28px;
 }
 
-.card {
-	transition: 0.3s;
-	width: 300px;
-
-}
 
 .shane {
 	transition: 0.3s;
@@ -101,7 +96,6 @@ export default {
 }
 .shane:hover{
 	transform: scale(1.09);
-	
 }
 
 .nameAndTitle {
@@ -128,7 +122,6 @@ export default {
 	overflow: hidden;
 	border-radius: 10px;
 	opacity: 0.9;
-	background-color: #7CC6FE;
 
 }
 .blue-box:hover{
