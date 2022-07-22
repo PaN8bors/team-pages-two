@@ -93,9 +93,12 @@ export default {
 .shane {
 	transition: 0.3s;
 	width: 100%;
+	opacity: 0.95;
 }
 .shane:hover{
 	transform: scale(1.09);
+	opacity: 1;
+
 }
 
 .nameAndTitle {
@@ -121,11 +124,7 @@ export default {
 	height: 300px;
 	overflow: hidden;
 	border-radius: 10px;
-	opacity: 0.9;
-
-}
-.blue-box:hover{
-	opacity: 1;
+	background-color: blue;
 
 }
 
